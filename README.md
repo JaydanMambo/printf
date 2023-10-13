@@ -19,7 +19,7 @@ The custom printf function developed in this project closely mimics the function
 We appreciate the guidance and support provided by our  instructors and peers throughout the course, making this project possible.
 
 # License
-This project is open-source and available under the MIT License.\n
+This project is open-source and available under the MIT License.
 Feel free to reach out if you have any questions or need further assistance.
 
 
