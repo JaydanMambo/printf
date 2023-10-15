@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	va_list arglist;
 
 	if (format == NULL)
-		return (98);
+		return (-1);
 	va_start(arglist, format);
 
 	while (*format)
@@ -58,12 +58,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(arglist);
 	return (printf_counter);
-}
-int main()
-{
-	_printf("Mambo");
-	_printf("%c", 'R');
-	_printf("%s", "Ruth");
-	_printf("%%");
-	return (0);
 }
