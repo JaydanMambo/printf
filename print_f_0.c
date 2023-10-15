@@ -29,9 +29,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			while (*format != '\0')
-			{
-				if (*format == '%')
+			if (*format == '\0')
+				break;
+			if (*format == '%')
 				{
 					write(1, format, 1);
 					printf_counter++;
@@ -53,11 +53,17 @@ int _printf(const char *format, ...)
 					write(1, st, st_length);
 					printf_counter += st_length;
 				}
-			}
 		}
-		format;
+		format++;
 	}
 	va_end(arglist);
 	return (printf_counter);
 }
-
+int main()
+{
+	_printf("Mambo");
+	_printf("%c", 'R');
+	_printf("%s", "Ruth");
+	_printf("%%");
+	return (0);
+}
