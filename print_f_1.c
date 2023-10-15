@@ -33,6 +33,3 @@ ptr++;
 va_end(args);
 return (result);
 }
-		   
-    
- 
