@@ -12,50 +12,46 @@
  */
 int _printf(const char *format, ...)
 {
-	int printf_counter = 0;
-	va_list arglist;
+int printf_counter = 0;
+va_list arglist;
 
-	if (format == NULL)
-		return (-1);
-	va_start(arglist, format);
+va_start(arglist, format);
 
-	while (*format)
-	{
-		if (*format != '%')
-		{
-			write(1, format, 1);
-			printf_counter++;
-		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == '%')
-				{
-					write(1, format, 1);
-					printf_counter++;
-				}
-				else if (*format == 'c')
-				{
-					char c = va_arg(arglist, int);
-
-					write(1, &c, 1);
-					printf_counter++;
-				}
-				else if (*format == 's')
-				{
-					char *st = va_arg(arglist, char*);
-					int st_length = 0;
-
-					while (st[st_length] != '\0')
-						st_length++;
-					write(1, st, st_length);
-					printf_counter += st_length;
-				}
-		}
-		format++;
-	}
-	va_end(arglist);
-	return (printf_counter);
+while (*format)
+{
+if (*format != '%')
+{
+write(1, format, 1);
+printf_counter++;
+}
+else
+{
+format++;
+if (*format == '\0')
+break;
+if (*format == '%')
+{
+write(1, format, 1);
+printf_counter++;
+}
+else if (*format == 'c')
+{
+char c = va_arg(arglist, int);
+write(1, &c, 1);
+printf_counter++;
+}
+else if (*format == 's')
+{
+char *st = va_arg(arglist, char*);
+int st_length = 0;
+while (st[st_length] != '\0')
+st_length++;
+write(1, st, st_length);
+printf_counter += st_length;
+}
+}
+format++;
+}
+va_end(arglist);
+return (printf_counter);
 }
