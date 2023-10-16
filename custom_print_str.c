@@ -3,7 +3,7 @@
 #include <stddef.h>
 /**
  * custom_print_str - Handles 's' specifier for custom_printf
- * @str - Pointer to the string
+ * @str: Pointer to the string
  *
  * Return: The number of characters printed.
  */
@@ -18,5 +18,5 @@ int custom_print_str(char *str)
 		our_putchar(str[length]);
 		length++;
 	}
-	return length;
+	return (length);
 }

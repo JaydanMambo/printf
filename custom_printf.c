@@ -28,10 +28,19 @@ int _printf(const char *format, ...)
 				switch (format[i])
 				{
 					case 's':
-						print_count += custom_print_str(va_arg(lists, char*);
+						print_count += custom_print_str(va_arg(lists, char*));
 						break;
 					case 'c':
-						print_count += our_putchar(va_arg(lists), int);
+						print_count += our_putchar(va_arg(lists, int));
+						break;
+					case 'i':
+						print_count += custom_print_int(va_arg(lists, int));
+						break;
+					case 'd':
+						print_count += custom_print_int(va_arg(lists, int));
+						break;
+					case 'b':
+						print_count += custom_print_binary(va_arg(lists, unsigned int));
 						break;
 					case '\0':
 						return (-1);
@@ -53,4 +62,3 @@ int _printf(const char *format, ...)
 	}
 	return (print_count);
 }
-
