@@ -39,6 +39,8 @@ int _printf(const char *format, ...)
 					case 'd':
 						print_count += custom_print_int(va_arg(lists, int));
 						break;
+					case 'b':
+						print_count += custom_print_binary(va_arg(lists, unsigned int));
 					case '\0':
 						return (-1);
 					case '%':
