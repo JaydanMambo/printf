@@ -15,7 +15,6 @@ int  result = 0;
 int value = 0;
 const char *ptr = format;
 va_start(args, format);
- 
 while (*ptr != '\0')
 {
 if (*ptr == '%')
