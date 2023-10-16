@@ -27,5 +27,5 @@ int custom_print_S(const char *str)
 		}
 		length++;
 	}
-	return length;
+	return (length);
 }
