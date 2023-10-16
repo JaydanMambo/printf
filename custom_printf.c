@@ -50,7 +50,6 @@ int _printf(const char *format, ...)
 					default:
 						print_count += our_putchar('%');
 						print_count += our_putchar(format[i]);
-						break;
 				}
 				sign = 0;
 			}
