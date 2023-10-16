@@ -33,6 +33,12 @@ int _printf(const char *format, ...)
 					case 'c':
 						print_count += our_putchar(va_arg(lists, int));
 						break;
+					case 'i':
+						print_count += custom_print_int(va_arg(lists, int));
+						break;
+					case 'd':
+						print_count += custom_print_int(va_arg(lists, int));
+						break;
 					case '\0':
 						return (-1);
 					case '%':
