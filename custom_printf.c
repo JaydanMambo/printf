@@ -57,6 +57,9 @@ int _printf(const char *format, ...)
 					case 'S':
 						print_count += custom_print_str(va_arg(lists, char *));
 						break;
+					case 'p':
+						print_count += custom_print_ptr(va_arg(lists, void*));
+						break;
 					case '\0':
 						return (-1);
 					case '%':
