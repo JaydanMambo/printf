@@ -54,6 +54,9 @@ int _printf(const char *format, ...)
 					case 'X':
 						print_count += custom_print_hex(va_arg(lists, unsigned int), 'A');
 						break;
+					case 'S':
+						print_count += custom_print_str(va_arg(lists, char *));
+						break;
 					case '\0':
 						return (-1);
 					case '%':
