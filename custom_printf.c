@@ -19,6 +19,9 @@ int _printf(const char *format, ...)
 			if (!sign)
 			{
 				if (format[i] != '%')
+					if (format[i] == '\n')
+						our_putchar('\n');
+					else
 					print_count += our_putchar(format[i]);
 				else
 					sign = 1;

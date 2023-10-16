@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stddef.h>
+#define MAX_BINARY_BITS 64
 /**
  * custom_print_binary - Convert an unsigned int to binary and print it.
  * @n: The unsigned integer to be converted to binary.
@@ -9,14 +10,13 @@
 int custom_print_binary(unsigned int n)
 {
 	int count = 0;
+	char binary[MAX_BINARY_BITS + 1];
 	int bits = (8 * sizeof(n));
 
 	if (n == 0)
 		count += our_putchar('0');
 	else
 	{
-		char binary[bits + 1];
-		/* To hold the binary representation (plus null terminator) */
 		int i = 0;
 
 		/* Convert the unsigned integer to binary */
@@ -41,6 +41,3 @@ int custom_print_binary(unsigned int n)
 		return (-1); /* Error occurred in our_putchar */
 	return (count);
 }
-
-
-
