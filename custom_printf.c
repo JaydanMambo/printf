@@ -41,6 +41,7 @@ int _printf(const char *format, ...)
 						break;
 					case 'b':
 						print_count += custom_print_binary(va_arg(lists, unsigned int));
+						break;
 					case '\0':
 						return (-1);
 					case '%':
@@ -49,6 +50,7 @@ int _printf(const char *format, ...)
 					default:
 						print_count += our_putchar('%');
 						print_count += our_putchar(format[i]);
+						break;
 				}
 				sign = 0;
 			}
