@@ -42,6 +42,18 @@ int _printf(const char *format, ...)
 					case 'b':
 						print_count += custom_print_binary(va_arg(lists, unsigned int));
 						break;
+					case 'u':
+						print_count += custom_print_unsigned(va_arg(lists, unsigned int), 10);
+						break;
+					case 'o':
+						print_count += custom_print_octal(va_arg(lists, unsigned int));
+						break;
+					case 'x':
+						print_count += custom_print_hex(va_arg(lists, unsigned int), 'a');
+						break;
+					case 'X':
+						print_count += custom_print_hex(va_arg(lists, unsigned int), 'A');
+						break;
 					case '\0':
 						return (-1);
 					case '%':
