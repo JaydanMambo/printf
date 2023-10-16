@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stddef.h>
+#include <stdio.h>
 /**
  * custom_print_int - Prints an integer using recursive logic
  * @n: The integer to print
