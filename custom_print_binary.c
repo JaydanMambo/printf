@@ -1,23 +1,33 @@
 #include "main.h"
 #include <stddef.h>
+#include <stdlib.h>
+
 /**
  * custom_print_binary - Convert an unsigned int to binary and print it.
  * @n: The unsigned integer to be converted to binary.
  *
- * Return: The number of characters printed, or -1 if an error occurs.
+ * Return: The number of characters printed, or -1 if an error occurscha.
  */
 int custom_print_binary(unsigned int n)
 {
-	int count = 0;
+int count = 0;
+	int i = 0;
 	int bits = (8 * sizeof(n));
 
 	if (n == 0)
 		count += our_putchar('0');
 	else
 	{
-		char binary[bits + 1];
+
+	  char *binary = malloc(bits + 1);
+	  
+	if (binary == NULL)
+	  {
+	    return (-1); /* error in allocate memory */
+	  }
+      
 		/* To hold the binary representation (plus null terminator) */
-		int i = 0;
+		
 
 		/* Convert the unsigned integer to binary */
 		while (n > 0 && i < bits)
@@ -36,11 +46,9 @@ int custom_print_binary(unsigned int n)
 			count += our_putchar(binary[i]);
 			i--;
 		}
+		free(binary);
 	}
 	if (count < 0)
 		return (-1); /* Error occurred in our_putchar */
 	return (count);
 }
-
-
-
