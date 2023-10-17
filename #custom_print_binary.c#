@@ -13,9 +13,8 @@ int custom_print_binary(unsigned int n)
 int count = 0;
 int i = 0;
 int bits = (8 * sizeof(n));
-
-        if (n == 0)
-                count += our_putchar('0');
+if (n == 0)
+count += our_putchar('0');
         else
         {
 
