@@ -63,6 +63,9 @@ int _printf(const char *format, ...)
 					case 'r':
 						print_count += custom_print_reverse(va_arg(lists, char *));
 						break;
+					case 'R':
+						print_count += custom_print_rot13(va_arg(lists, char *));
+						break;
 					case '\0':
 						return (-1);
 					case '%':

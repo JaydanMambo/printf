@@ -13,6 +13,7 @@ int custom_print_reverse(const char *str)
 	if (str)
 	{
 		const char *end = str;
+
 		while (*end)
 		{
 			 end++;

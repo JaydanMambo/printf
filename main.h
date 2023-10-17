@@ -14,5 +14,6 @@ int custom_print_hex(unsigned int num, char base_char);
 int custom_print_S(const char *str);
 int custom_print_ptr(void *ptr);
 int custom_print_reverse(const char *str);
+int custom_print_rot13(const char *str);
 
 #endif
