@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <unistd.h>
 /**
  * custom_print_S - Prints a string with special formatting
  *			for non-printable characters
@@ -8,24 +10,34 @@
  */
 int custom_print_S(const char *str)
 {
-	int length = 0;
-	int i;
+	int count = 0;
 
-	for (i = 0; *(str + i); i++)
+	if (str)
 	{
-		if ((*(str + i) >= 0 && *(str + i) <= 32) || (*(str + i) >= 127))
+		while (*str)
 		{
-			our_putchar('\\');
-			our_putchar('x');
-			if (*(str + i) <= 16)
-				our_putchar('0');
-			i += custom_print_hex(str[i], 'A');
+			if (*str == '\n')
+			{
+				our_putchar('\\');
+				our_putchar('n');
+				count += 2;
+			}
+			else if (*str < 32 || *str >= 127)
+			{
+				our_putchar('\\');
+				our_putchar('x');
+				count += 2;
+				count += custom_print_hex(*str, 'A');
+			}
+			else
+			{
+				our_putchar(*str);
+				count++;
+			}
+			str++;
 		}
-		else
-		{
-			our_putchar(*(str + i));
-		}
-		length++;
 	}
-	return (length);
+	return (count);
 }
+
+
