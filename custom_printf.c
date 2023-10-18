@@ -8,80 +8,80 @@
  */
 int _printf(const char *format, ...)
 {
-va_list lists;
-int i = 0, print_count = 0, sign = 0;
-if (format)
-{
-va_start(lists, format);
-for (; format[i] != '\0'; i++)
-{
-if (!sign)
-{
-if (format[i] != '%')
-print_count += our_putchar(format[i]);
-else
-sign = 1;
-}
-else
-{
-switch (format[i])
-{
-case 's':
-print_count += custom_print_str(va_arg(lists, char*));
-break;
-case 'c':
-print_count += our_putchar(va_arg(lists, int));
-break;
-case 'i':
-print_count += custom_print_int(va_arg(lists, int));
-break;
-case 'd':
-print_count += custom_print_int(va_arg(lists, int));
-break;
-case 'b':
-print_count += custom_print_binary(va_arg(lists, unsigned int));
-break;
-case 'u':
-print_count += custom_print_unsigned(va_arg(lists, unsigned int), 10);
-break;
-case 'o':
-print_count += custom_print_octal(va_arg(lists, unsigned int));
-break;
-case 'x':
-print_count += custom_print_hex(va_arg(lists, unsigned int), 'a');
-break;
-case 'X':
-print_count += custom_print_hex(va_arg(lists, unsigned int), 'A');
-break;
-case 'S':
-print_count += custom_print_str(va_arg(lists, char *));
-break;
-case 'p':
-print_count += custom_print_ptr(va_arg(lists, void*));
-break;
-case 'r':
-print_count += custom_print_reverse(va_arg(lists, char *));
-break;
-case 'R':
-print_count += custom_print_rot13(va_arg(lists, char *));
-break;
-case '\0':
-return (-1);
-case '%':
-print_count += our_putchar('%');
-break;
-default:
-print_count += our_putchar('%');
-print_count += our_putchar(format[i]);
-}
-sign = 0;
-}
-}
-va_end(lists);
-}
-else
-{
-return (-1);
-}
-return (print_count);
+  va_list lists;
+  int i = 0, print_count = 0, sign = 0;
+  if (format)
+    {
+      va_start(lists, format);
+      for (; format[i] != '\0'; i++)
+	{
+	  if (!sign)
+	    {
+	      if (format[i] != '%')
+		print_count += our_putchar(format[i]);
+	      else
+		sign = 1;
+	    }
+	  else
+	    {
+	      switch (format[i])
+		{
+		case 's':
+		  print_count += custom_print_str(va_arg(lists, char*));
+		  break;
+		case 'c':
+		  print_count += our_putchar(va_arg(lists, int));
+		  break;
+		case 'i':
+		  print_count += custom_print_int(va_arg(lists, int));
+		  break;
+		case 'd':
+		  print_count += custom_print_int(va_arg(lists, int));
+		  break;
+		case 'b':
+		  print_count += custom_print_binary(va_arg(lists, unsigned int));
+		  break;
+		case 'u':
+		  print_count += custom_print_unsigned(va_arg(lists, unsigned int), 10);
+		  break;
+		case 'o':
+		  print_count += custom_print_octal(va_arg(lists, unsigned int));
+		  break;
+		case 'x':
+		  print_count += custom_print_hex(va_arg(lists, unsigned int), 'a');
+		  break;
+		case 'X':
+		  print_count += custom_print_hex(va_arg(lists, unsigned int), 'A');
+		  break;
+		case 'S':
+		  print_count += custom_print_str(va_arg(lists, char *));
+		  break;
+		case 'p':
+		  print_count += custom_print_ptr(va_arg(lists, void*));
+		  break;
+		case 'r':
+		  print_count += custom_print_reverse(va_arg(lists, char *));
+		  break;
+		case 'R':
+		  print_count += custom_print_rot13(va_arg(lists, char *));
+		  break;
+		case '\0':
+		  return (-1);
+		case '%':
+		  print_count += our_putchar('%');
+		  break;
+		default:
+		  print_count += our_putchar('%');
+		  print_count += our_putchar(format[i]);
+		}
+	      sign = 0;
+	    }
+	}
+      va_end(lists);
+    }
+  else
+    {
+      return (-1);
+    }
+  return (print_count);
 }
